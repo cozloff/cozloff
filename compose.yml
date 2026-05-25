@@ -4,5 +4,8 @@ services:
     volumes:
       - .:/app
     working_dir: /app
+    gpus: all
+    environment:
+      NVIDIA_DRIVER_CAPABILITIES: compute,utility,graphics
     stdin_open: true
     tty: true
