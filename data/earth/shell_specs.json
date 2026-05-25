@@ -1,0 +1,40 @@
+[
+  {
+    "shell_code": "InnerCore",
+    "source": "initial estimate",
+    "density": {
+      "average_kg_m3": 13000.0,
+      "min_kg_m3": null,
+      "max_kg_m3": null
+    },
+    "temperature": {
+      "average_k": 5700.0,
+      "min_k": null,
+      "max_k": null
+    },
+    "pressure": {
+      "average_pa": null,
+      "min_pa": null,
+      "max_pa": null
+    }
+  },
+  {
+    "shell_code": "OuterCore",
+    "source": "initial estimate",
+    "density": {
+      "average_kg_m3": 11000.0,
+      "min_kg_m3": null,
+      "max_kg_m3": null
+    },
+    "temperature": {
+      "average_k": 4400.0,
+      "min_k": null,
+      "max_k": null
+    },
+    "pressure": {
+      "average_pa": null,
+      "min_pa": null,
+      "max_pa": null
+    }
+  }
+]
