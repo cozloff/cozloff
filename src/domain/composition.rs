@@ -3,22 +3,15 @@ use crate::domain::element::{Element, ElementFraction};
 use crate::domain::earth::EarthShellCode;
 
 // EarthShell
-// + DensityProfile
+// + EarthShellSpec::DensitySpec
 // + CompositionProfile
 //     ↓
 // AtomDistribution
 
 #[derive(Debug, Clone)]
-pub struct DensityProfile {
-    pub shell_code: EarthShellCode,
-    pub source: &'static str,
-    pub average_density_kg_m3: f64,
-}
-
-#[derive(Debug, Clone)]
 pub struct CompositionProfile {
     pub shell_code: EarthShellCode,
-    pub source: &'static str,
+    pub source: String,
     pub fractions: Vec<ElementFraction>,
 }
 

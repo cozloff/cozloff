@@ -1,0 +1,122 @@
+[
+  {
+    "code": "InnerCore",
+    "name": "Inner Core",
+    "domain": "Interior",
+    "min_depth_km": 5155.0,
+    "max_depth_km": 6371.0,
+    "min_altitude_km": null,
+    "max_altitude_km": null,
+    "include_in_total_earth": true
+  },
+  {
+    "code": "OuterCore",
+    "name": "Outer Core",
+    "domain": "Interior",
+    "min_depth_km": 2885.0,
+    "max_depth_km": 5155.0,
+    "min_altitude_km": null,
+    "max_altitude_km": null,
+    "include_in_total_earth": true
+  },
+  {
+    "code": "LowerMantle",
+    "name": "Lower Mantle",
+    "domain": "Interior",
+    "min_depth_km": 700.0,
+    "max_depth_km": 2885.0,
+    "min_altitude_km": null,
+    "max_altitude_km": null,
+    "include_in_total_earth": true
+  },
+  {
+    "code": "LithosphericMantle",
+    "name": "Lithospheric Mantle",
+    "domain": "Interior",
+    "min_depth_km": 35.0,
+    "max_depth_km": 700.0,
+    "min_altitude_km": null,
+    "max_altitude_km": null,
+    "include_in_total_earth": true
+  },
+  {
+    "code": "OceanicCrust",
+    "name": "Oceanic Crust",
+    "domain": "Surface",
+    "min_depth_km": 4.0,
+    "max_depth_km": 14.0,
+    "min_altitude_km": null,
+    "max_altitude_km": null,
+    "include_in_total_earth": false
+  },
+  {
+    "code": "Ocean",
+    "name": "Ocean",
+    "domain": "Surface",
+    "min_depth_km": 0.0,
+    "max_depth_km": 4.0,
+    "min_altitude_km": null,
+    "max_altitude_km": null,
+    "include_in_total_earth": true
+  },
+  {
+    "code": "Crust",
+    "name": "Crust",
+    "domain": "Interior",
+    "min_depth_km": 0.0,
+    "max_depth_km": 35.0,
+    "min_altitude_km": null,
+    "max_altitude_km": null,
+    "include_in_total_earth": true
+  },
+  {
+    "code": "Troposphere",
+    "name": "Troposphere",
+    "domain": "Atmosphere",
+    "min_depth_km": null,
+    "max_depth_km": null,
+    "min_altitude_km": 0.0,
+    "max_altitude_km": 11.0,
+    "include_in_total_earth": true
+  },
+  {
+    "code": "Stratosphere",
+    "name": "Stratosphere",
+    "domain": "Atmosphere",
+    "min_depth_km": null,
+    "max_depth_km": null,
+    "min_altitude_km": 20.0,
+    "max_altitude_km": 50.0,
+    "include_in_total_earth": true
+  },
+  {
+    "code": "Mesosphere",
+    "name": "Mesosphere",
+    "domain": "Atmosphere",
+    "min_depth_km": null,
+    "max_depth_km": null,
+    "min_altitude_km": 50.0,
+    "max_altitude_km": 85.0,
+    "include_in_total_earth": true
+  },
+  {
+    "code": "Thermosphere",
+    "name": "Thermosphere",
+    "domain": "Atmosphere",
+    "min_depth_km": null,
+    "max_depth_km": null,
+    "min_altitude_km": 85.0,
+    "max_altitude_km": 690.0,
+    "include_in_total_earth": true
+  },
+  {
+    "code": "Exosphere",
+    "name": "Exosphere",
+    "domain": "Atmosphere",
+    "min_depth_km": null,
+    "max_depth_km": null,
+    "min_altitude_km": 690.0,
+    "max_altitude_km": 10000.0,
+    "include_in_total_earth": true
+  }
+]

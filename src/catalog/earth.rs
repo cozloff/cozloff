@@ -1,166 +1,168 @@
+use serde::Deserialize;
+
 use crate::domain::earth::{EarthModel, EarthShell, EarthShellCode, EarthShellDomain};
+use crate::domain::shell_spec::{DensitySpec, EarthShellSpec, PressureSpec, TemperatureSpec};
 
-pub const INNER_CORE: EarthShell = EarthShell {
-    code: EarthShellCode::InnerCore,
-    name: "Inner Core",
-    domain: EarthShellDomain::Interior,
-    min_depth_km: Some(5155.0),
-    max_depth_km: Some(6371.0),
-    min_altitude_km: None,
-    max_altitude_km: None,
-    include_in_total_earth: true,
-};
+const EARTH_SHELLS_JSON: &str = include_str!("../../data/earth/shells.json");
+const EARTH_SHELL_SPECS_JSON: &str = include_str!("../../data/earth/shell_specs.json");
 
-pub const OUTER_CORE: EarthShell = EarthShell {
-    code: EarthShellCode::OuterCore,
-    name: "Outer Core",
-    domain: EarthShellDomain::Interior,
-    min_depth_km: Some(2885.0),
-    max_depth_km: Some(5155.0),
-    min_altitude_km: None,
-    max_altitude_km: None,
-    include_in_total_earth: true,
-};
+#[derive(Debug, Deserialize)]
+struct EarthShellRecord {
+    code: String,
+    name: String,
+    domain: String,
+    min_depth_km: Option<f64>,
+    max_depth_km: Option<f64>,
+    min_altitude_km: Option<f64>,
+    max_altitude_km: Option<f64>,
+    include_in_total_earth: bool,
+}
 
-pub const LOWER_MANTLE: EarthShell = EarthShell {
-    code: EarthShellCode::LowerMantle,
-    name: "Lower Mantle",
-    domain: EarthShellDomain::Interior,
-    min_depth_km: Some(700.0),
-    max_depth_km: Some(2885.0),
-    min_altitude_km: None,
-    max_altitude_km: None,
-    include_in_total_earth: true,
-};
+#[derive(Debug, Deserialize)]
+struct EarthShellSpecRecord {
+    shell_code: String,
+    source: String,
+    density: Option<DensitySpecRecord>,
+    temperature: Option<TemperatureSpecRecord>,
+    pressure: Option<PressureSpecRecord>,
+}
 
-pub const LITHOSPHERIC_MANTLE: EarthShell = EarthShell {
-    code: EarthShellCode::LithosphericMantle,
-    name: "Lithospheric Mantle",
-    domain: EarthShellDomain::Interior,
-    min_depth_km: Some(35.0),
-    max_depth_km: Some(700.0),
-    min_altitude_km: None,
-    max_altitude_km: None,
-    include_in_total_earth: true,
-};
+#[derive(Debug, Deserialize)]
+struct DensitySpecRecord {
+    average_kg_m3: Option<f64>,
+    min_kg_m3: Option<f64>,
+    max_kg_m3: Option<f64>,
+}
 
-pub const OCEANIC_CRUST: EarthShell = EarthShell {
-    code: EarthShellCode::OceanicCrust,
-    name: "Oceanic Crust",
-    domain: EarthShellDomain::Surface,
-    min_depth_km: Some(4.0),
-    max_depth_km: Some(14.0),
-    min_altitude_km: None,
-    max_altitude_km: None,
-    include_in_total_earth: false,
-};
+#[derive(Debug, Deserialize)]
+struct TemperatureSpecRecord {
+    average_k: Option<f64>,
+    min_k: Option<f64>,
+    max_k: Option<f64>,
+}
 
-pub const OCEAN: EarthShell = EarthShell {
-    code: EarthShellCode::Ocean,
-    name: "Ocean",
-    domain: EarthShellDomain::Surface,
-    min_depth_km: Some(0.0),
-    max_depth_km: Some(4.0),
-    min_altitude_km: None,
-    max_altitude_km: None,
-    include_in_total_earth: true,
-};
+#[derive(Debug, Deserialize)]
+struct PressureSpecRecord {
+    average_pa: Option<f64>,
+    min_pa: Option<f64>,
+    max_pa: Option<f64>,
+}
 
-pub const CRUST: EarthShell = EarthShell {
-    code: EarthShellCode::Crust,
-    name: "Crust",
-    domain: EarthShellDomain::Interior,
-    min_depth_km: Some(0.0),
-    max_depth_km: Some(35.0),
-    min_altitude_km: None,
-    max_altitude_km: None,
-    include_in_total_earth: true,
-};
-
-
-pub const TROPOSPHERE: EarthShell = EarthShell {
-    code: EarthShellCode::Troposphere,
-    name: "Troposphere",
-    domain: EarthShellDomain::Atmosphere,
-    min_depth_km: None,
-    max_depth_km: None,
-    min_altitude_km: Some(0.0),
-    max_altitude_km: Some(11.0),
-    include_in_total_earth: true,
-};
-
-pub const CRUST_AGGREGATE: EarthShell = EarthShell {
-    code: EarthShellCode::Crust,
-    name: "Crust",
-    domain: EarthShellDomain::Interior,
-    min_depth_km: Some(0.0),
-    max_depth_km: Some(35.0),
-    min_altitude_km: None,
-    max_altitude_km: None,
-    include_in_total_earth: false,
-};
-
-pub const STRATOSPHERE: EarthShell = EarthShell {
-    code: EarthShellCode::Stratosphere,
-    name: "Stratosphere",
-    domain: EarthShellDomain::Atmosphere,
-    min_depth_km: None,
-    max_depth_km: None,
-    min_altitude_km: Some(20.0),
-    max_altitude_km: Some(50.0),
-    include_in_total_earth: true,
-};
-
-pub const MESOSPHERE: EarthShell = EarthShell {
-    code: EarthShellCode::Mesosphere,
-    name: "Mesosphere",
-    domain: EarthShellDomain::Atmosphere,
-    min_depth_km: None,
-    max_depth_km: None,
-    min_altitude_km: Some(50.0),
-    max_altitude_km: Some(85.0),
-    include_in_total_earth: true,
-};
-
-pub const THERMOSPHERE: EarthShell = EarthShell {
-    code: EarthShellCode::Thermosphere,
-    name: "Thermosphere",
-    domain: EarthShellDomain::Atmosphere,
-    min_depth_km: None,
-    max_depth_km: None,
-    min_altitude_km: Some(85.0),
-    max_altitude_km: Some(690.0),
-    include_in_total_earth: true,
-};
-
-pub const EXOSPHERE: EarthShell = EarthShell {
-    code: EarthShellCode::Exosphere,
-    name: "Exosphere",
-    domain: EarthShellDomain::Atmosphere,
-    min_depth_km: None,
-    max_depth_km: None,
-    min_altitude_km: Some(690.0),
-    max_altitude_km: Some(10000.0),
-    include_in_total_earth: true,
-};
-
+// Simple ETL entry point:
+// - extract raw JSON records from data/earth/*.json
+// - transform stringly JSON values into typed domain enums
+// - load the typed records into the EarthModel used by the app
 pub fn earth_model() -> EarthModel {
     EarthModel {
-        shells: vec![
-            INNER_CORE,
-            OUTER_CORE,
-            LOWER_MANTLE,
-            LITHOSPHERIC_MANTLE,
-            OCEANIC_CRUST,
-            OCEAN,
-            CRUST,
-            TROPOSPHERE,
-            STRATOSPHERE,
-            MESOSPHERE,
-            THERMOSPHERE,
-            EXOSPHERE,
-        ],
-        compositions: Vec::new(),
-        densities: Vec::new(),
+        shells: load_shells(),
+        specs: load_shell_specs(),
+    }
+}
+
+fn load_shells() -> Vec<EarthShell> {
+    let records = extract_shell_records();
+
+    records
+        .into_iter()
+        .map(transform_shell_record)
+        .collect::<Result<Vec<_>, _>>()
+        .expect("failed to transform Earth shell JSON into domain structs")
+}
+
+fn extract_shell_records() -> Vec<EarthShellRecord> {
+    serde_json::from_str(EARTH_SHELLS_JSON).expect("failed to parse data/earth/shells.json")
+}
+
+fn load_shell_specs() -> Vec<EarthShellSpec> {
+    let records = extract_shell_spec_records();
+
+    records
+        .into_iter()
+        .map(transform_shell_spec_record)
+        .collect::<Result<Vec<_>, _>>()
+        .expect("failed to transform Earth shell spec JSON into domain structs")
+}
+
+fn extract_shell_spec_records() -> Vec<EarthShellSpecRecord> {
+    serde_json::from_str(EARTH_SHELL_SPECS_JSON)
+        .expect("failed to parse data/earth/shell_specs.json")
+}
+
+fn transform_shell_record(record: EarthShellRecord) -> Result<EarthShell, String> {
+    Ok(EarthShell {
+        code: parse_shell_code(&record.code)?,
+        name: record.name,
+        domain: parse_shell_domain(&record.domain)?,
+        min_depth_km: record.min_depth_km,
+        max_depth_km: record.max_depth_km,
+        min_altitude_km: record.min_altitude_km,
+        max_altitude_km: record.max_altitude_km,
+        include_in_total_earth: record.include_in_total_earth,
+    })
+}
+
+fn transform_shell_spec_record(record: EarthShellSpecRecord) -> Result<EarthShellSpec, String> {
+    Ok(EarthShellSpec {
+        shell_code: parse_shell_code(&record.shell_code)?,
+        source: record.source,
+        density: record.density.map(transform_density_spec),
+        temperature: record.temperature.map(transform_temperature_spec),
+        pressure: record.pressure.map(transform_pressure_spec),
+        composition: None,
+    })
+}
+
+fn transform_density_spec(record: DensitySpecRecord) -> DensitySpec {
+    DensitySpec {
+        average_kg_m3: record.average_kg_m3,
+        min_kg_m3: record.min_kg_m3,
+        max_kg_m3: record.max_kg_m3,
+    }
+}
+
+fn transform_temperature_spec(record: TemperatureSpecRecord) -> TemperatureSpec {
+    TemperatureSpec {
+        average_k: record.average_k,
+        min_k: record.min_k,
+        max_k: record.max_k,
+    }
+}
+
+fn transform_pressure_spec(record: PressureSpecRecord) -> PressureSpec {
+    PressureSpec {
+        average_pa: record.average_pa,
+        min_pa: record.min_pa,
+        max_pa: record.max_pa,
+    }
+}
+
+fn parse_shell_code(code: &str) -> Result<EarthShellCode, String> {
+    match code {
+        "Exosphere" => Ok(EarthShellCode::Exosphere),
+        "Thermosphere" => Ok(EarthShellCode::Thermosphere),
+        "Mesosphere" => Ok(EarthShellCode::Mesosphere),
+        "Stratosphere" => Ok(EarthShellCode::Stratosphere),
+        "Troposphere" => Ok(EarthShellCode::Troposphere),
+        "Ocean" => Ok(EarthShellCode::Ocean),
+        "ContinentalCrust" => Ok(EarthShellCode::ContinentalCrust),
+        "OceanicCrust" => Ok(EarthShellCode::OceanicCrust),
+        "Crust" => Ok(EarthShellCode::Crust),
+        "LithosphericMantle" => Ok(EarthShellCode::LithosphericMantle),
+        "Asthenosphere" => Ok(EarthShellCode::Asthenosphere),
+        "MantleTransitionZone" => Ok(EarthShellCode::MantleTransitionZone),
+        "LowerMantle" => Ok(EarthShellCode::LowerMantle),
+        "CoreMantleBoundary" => Ok(EarthShellCode::CoreMantleBoundary),
+        "OuterCore" => Ok(EarthShellCode::OuterCore),
+        "InnerCore" => Ok(EarthShellCode::InnerCore),
+        unknown => Err(format!("unknown Earth shell code `{unknown}`")),
+    }
+}
+
+fn parse_shell_domain(domain: &str) -> Result<EarthShellDomain, String> {
+    match domain {
+        "Atmosphere" => Ok(EarthShellDomain::Atmosphere),
+        "Surface" => Ok(EarthShellDomain::Surface),
+        "Interior" => Ok(EarthShellDomain::Interior),
+        unknown => Err(format!("unknown Earth shell domain `{unknown}`")),
     }
 }

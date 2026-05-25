@@ -1,4 +1,4 @@
-use super::composition::{CompositionProfile, DensityProfile};
+use super::shell_spec::EarthShellSpec;
 
 #[derive(Debug, Clone, Copy, PartialEq, Eq, Hash)]
 #[repr(i32)]
@@ -36,7 +36,7 @@ pub enum EarthShellDomain {
 #[derive(Debug, Clone)]
 pub struct EarthShell {
     pub code: EarthShellCode,
-    pub name: &'static str,
+    pub name: String,
     pub domain: EarthShellDomain,
 
     // Internal shells use depth below surface
@@ -52,8 +52,7 @@ pub struct EarthShell {
 
 pub struct EarthModel {
     pub shells: Vec<EarthShell>,
-    pub compositions: Vec<CompositionProfile>,
-    pub densities: Vec<DensityProfile>,
+    pub specs: Vec<EarthShellSpec>,
 }
 
 impl EarthModel {
@@ -61,11 +60,7 @@ impl EarthModel {
         self.shells.iter().find(|s| s.code == code)
     }
 
-    pub fn composition(&self, code: EarthShellCode) -> Option<&CompositionProfile> {
-        self.compositions.iter().find(|c| c.shell_code == code)
-    }
-
-    pub fn density(&self, code: EarthShellCode) -> Option<&DensityProfile> {
-        self.densities.iter().find(|d| d.shell_code == code)
+    pub fn spec(&self, code: EarthShellCode) -> Option<&EarthShellSpec> {
+        self.specs.iter().find(|spec| spec.shell_code == code)
     }
 }
