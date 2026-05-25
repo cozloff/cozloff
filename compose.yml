@@ -1,0 +1,20 @@
+services:
+  cozloff:
+    build: .
+    environment:
+      DISPLAY: ${DISPLAY:-}
+      LIBGL_ALWAYS_INDIRECT: "0"
+      WAYLAND_DISPLAY: ${WAYLAND_DISPLAY:-}
+      XDG_RUNTIME_DIR: ${XDG_RUNTIME_DIR:-}
+      WGPU_BACKEND: vulkan
+      XAUTHORITY: /tmp/.docker.xauth
+    devices:
+      - /dev/dri:/dev/dri
+    volumes:
+      - .:/app
+      - /tmp/.X11-unix:/tmp/.X11-unix
+      - ${XAUTHORITY:-/tmp/.docker.xauth}:/tmp/.docker.xauth:ro
+      - ${XDG_RUNTIME_DIR:-/tmp}:${XDG_RUNTIME_DIR:-/tmp}
+    working_dir: /app
+    stdin_open: true
+    tty: true
