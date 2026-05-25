@@ -8,7 +8,11 @@ The Cozloff is a Rust program.
 Run shell:
 ```bash
 docker compose build
-xhost +local:root
 docker compose run --rm cozloff bash
 cargo run
+```
+
+View wave function:
+```bash
+.venv/bin/rerun wave.rrd
 ```

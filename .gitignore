@@ -1,5 +1,12 @@
 .history
 
+wave.rrd
+
+.venv
+
+cargo.lock
+
 # Added by cargo
 
 /target
+
