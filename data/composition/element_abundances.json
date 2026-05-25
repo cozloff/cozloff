@@ -1,0 +1,359 @@
+[
+  {
+    "environment": "bulk_earth",
+    "element": "Fe",
+    "basis": "MassFraction",
+    "fraction": 0.321,
+    "source": "Wikipedia: Abundance of the chemical elements, Earth section; citing Morgan & Anders 1980"
+  },
+  {
+    "environment": "bulk_earth",
+    "element": "O",
+    "basis": "MassFraction",
+    "fraction": 0.301,
+    "source": "Wikipedia: Abundance of the chemical elements, Earth section; citing Morgan & Anders 1980"
+  },
+  {
+    "environment": "bulk_earth",
+    "element": "Si",
+    "basis": "MassFraction",
+    "fraction": 0.151,
+    "source": "Wikipedia: Abundance of the chemical elements, Earth section; citing Morgan & Anders 1980"
+  },
+  {
+    "environment": "bulk_earth",
+    "element": "Mg",
+    "basis": "MassFraction",
+    "fraction": 0.139,
+    "source": "Wikipedia: Abundance of the chemical elements, Earth section; citing Morgan & Anders 1980"
+  },
+  {
+    "environment": "bulk_earth",
+    "element": "S",
+    "basis": "MassFraction",
+    "fraction": 0.029,
+    "source": "Wikipedia: Abundance of the chemical elements, Earth section; citing Morgan & Anders 1980"
+  },
+  {
+    "environment": "bulk_earth",
+    "element": "Ni",
+    "basis": "MassFraction",
+    "fraction": 0.018,
+    "source": "Wikipedia: Abundance of the chemical elements, Earth section; citing Morgan & Anders 1980"
+  },
+  {
+    "environment": "bulk_earth",
+    "element": "Ca",
+    "basis": "MassFraction",
+    "fraction": 0.015,
+    "source": "Wikipedia: Abundance of the chemical elements, Earth section; citing Morgan & Anders 1980"
+  },
+  {
+    "environment": "bulk_earth",
+    "element": "Al",
+    "basis": "MassFraction",
+    "fraction": 0.014,
+    "source": "Wikipedia: Abundance of the chemical elements, Earth section; citing Morgan & Anders 1980"
+  },
+  {
+    "environment": "crust",
+    "element": "O",
+    "basis": "MassFraction",
+    "fraction": 0.46,
+    "source": "Wikipedia: Abundance of the chemical elements, Crust section"
+  },
+  {
+    "environment": "crust",
+    "element": "Si",
+    "basis": "MassFraction",
+    "fraction": 0.28,
+    "source": "Wikipedia: Abundance of the chemical elements, Crust section"
+  },
+  {
+    "environment": "crust",
+    "element": "Al",
+    "basis": "MassFraction",
+    "fraction": 0.083,
+    "source": "Wikipedia: Abundance of the chemical elements, Crust section"
+  },
+  {
+    "environment": "crust",
+    "element": "Fe",
+    "basis": "MassFraction",
+    "fraction": 0.056,
+    "source": "Wikipedia: Abundance of the chemical elements, Crust section"
+  },
+  {
+    "environment": "crust",
+    "element": "Ca",
+    "basis": "MassFraction",
+    "fraction": 0.042,
+    "source": "Wikipedia: Abundance of the chemical elements, Crust section"
+  },
+  {
+    "environment": "crust",
+    "element": "Na",
+    "basis": "MassFraction",
+    "fraction": 0.025,
+    "source": "Wikipedia: Abundance of the chemical elements, Crust section"
+  },
+  {
+    "environment": "crust",
+    "element": "Mg",
+    "basis": "MassFraction",
+    "fraction": 0.024,
+    "source": "Wikipedia: Abundance of the chemical elements, Crust section"
+  },
+  {
+    "environment": "crust",
+    "element": "K",
+    "basis": "MassFraction",
+    "fraction": 0.02,
+    "source": "Wikipedia: Abundance of the chemical elements, Crust section"
+  },
+  {
+    "environment": "crust",
+    "element": "Ti",
+    "basis": "MassFraction",
+    "fraction": 0.0061,
+    "source": "Wikipedia: Abundance of the chemical elements, Crust section"
+  },
+  {
+    "environment": "mantle",
+    "element": "O",
+    "basis": "MassFraction",
+    "fraction": 0.443,
+    "source": "Wikipedia: Abundance of the chemical elements, Mantle section; citing Anderson, Theory of the Earth"
+  },
+  {
+    "environment": "mantle",
+    "element": "Mg",
+    "basis": "MassFraction",
+    "fraction": 0.223,
+    "source": "Wikipedia: Abundance of the chemical elements, Mantle section; citing Anderson, Theory of the Earth"
+  },
+  {
+    "environment": "mantle",
+    "element": "Si",
+    "basis": "MassFraction",
+    "fraction": 0.213,
+    "source": "Wikipedia: Abundance of the chemical elements, Mantle section; citing Anderson, Theory of the Earth"
+  },
+  {
+    "environment": "mantle",
+    "element": "Fe",
+    "basis": "MassFraction",
+    "fraction": 0.0632,
+    "source": "Wikipedia: Abundance of the chemical elements, Mantle section; citing Anderson, Theory of the Earth"
+  },
+  {
+    "environment": "mantle",
+    "element": "Ca",
+    "basis": "MassFraction",
+    "fraction": 0.0248,
+    "source": "Wikipedia: Abundance of the chemical elements, Mantle section; citing Anderson, Theory of the Earth"
+  },
+  {
+    "environment": "mantle",
+    "element": "Al",
+    "basis": "MassFraction",
+    "fraction": 0.0229,
+    "source": "Wikipedia: Abundance of the chemical elements, Mantle section; citing Anderson, Theory of the Earth"
+  },
+  {
+    "environment": "mantle",
+    "element": "Ni",
+    "basis": "MassFraction",
+    "fraction": 0.0019,
+    "source": "Wikipedia: Abundance of the chemical elements, Mantle section; citing Anderson, Theory of the Earth"
+  },
+  {
+    "environment": "core",
+    "element": "Fe",
+    "basis": "MassFraction",
+    "fraction": 0.888,
+    "source": "Wikipedia: Abundance of the chemical elements, Core section"
+  },
+  {
+    "environment": "core",
+    "element": "Ni",
+    "basis": "MassFraction",
+    "fraction": 0.058,
+    "source": "Wikipedia: Abundance of the chemical elements, Core section"
+  },
+  {
+    "environment": "core",
+    "element": "S",
+    "basis": "MassFraction",
+    "fraction": 0.045,
+    "source": "Wikipedia: Abundance of the chemical elements, Core section"
+  },
+  {
+    "environment": "ocean",
+    "element": "O",
+    "basis": "MassFraction",
+    "fraction": 0.8584,
+    "source": "Wikipedia: Abundance of the chemical elements, Ocean section"
+  },
+  {
+    "environment": "ocean",
+    "element": "H",
+    "basis": "MassFraction",
+    "fraction": 0.1082,
+    "source": "Wikipedia: Abundance of the chemical elements, Ocean section"
+  },
+  {
+    "environment": "ocean",
+    "element": "Cl",
+    "basis": "MassFraction",
+    "fraction": 0.0194,
+    "source": "Wikipedia: Abundance of the chemical elements, Ocean section"
+  },
+  {
+    "environment": "ocean",
+    "element": "Na",
+    "basis": "MassFraction",
+    "fraction": 0.0108,
+    "source": "Wikipedia: Abundance of the chemical elements, Ocean section"
+  },
+  {
+    "environment": "ocean",
+    "element": "Mg",
+    "basis": "MassFraction",
+    "fraction": 0.0013,
+    "source": "Wikipedia: Abundance of the chemical elements, Ocean section"
+  },
+  {
+    "environment": "ocean",
+    "element": "S",
+    "basis": "MassFraction",
+    "fraction": 0.0009,
+    "source": "Wikipedia: Abundance of the chemical elements, Ocean section"
+  },
+  {
+    "environment": "ocean",
+    "element": "Ca",
+    "basis": "MassFraction",
+    "fraction": 0.0004,
+    "source": "Wikipedia: Abundance of the chemical elements, Ocean section"
+  },
+  {
+    "environment": "ocean",
+    "element": "K",
+    "basis": "MassFraction",
+    "fraction": 0.0004,
+    "source": "Wikipedia: Abundance of the chemical elements, Ocean section"
+  },
+  {
+    "environment": "ocean",
+    "element": "Br",
+    "basis": "MassFraction",
+    "fraction": 0.00007,
+    "source": "Wikipedia: Abundance of the chemical elements, Ocean section"
+  },
+  {
+    "environment": "ocean",
+    "element": "C",
+    "basis": "MassFraction",
+    "fraction": 0.00003,
+    "source": "Wikipedia: Abundance of the chemical elements, Ocean section"
+  },
+  {
+    "environment": "ocean",
+    "element": "B",
+    "basis": "MassFraction",
+    "fraction": 0.000004,
+    "source": "Wikipedia: Abundance of the chemical elements, Ocean section"
+  },
+  {
+    "environment": "atmosphere",
+    "element": "N",
+    "basis": "VolumeFraction",
+    "fraction": 0.781,
+    "source": "Wikipedia: Abundance of the chemical elements, Atmosphere section"
+  },
+  {
+    "environment": "atmosphere",
+    "element": "O",
+    "basis": "VolumeFraction",
+    "fraction": 0.209,
+    "source": "Wikipedia: Abundance of the chemical elements, Atmosphere section"
+  },
+  {
+    "environment": "atmosphere",
+    "element": "Ar",
+    "basis": "VolumeFraction",
+    "fraction": 0.0096,
+    "source": "Wikipedia: Abundance of the chemical elements, Atmosphere section"
+  },
+  {
+    "environment": "solar_system",
+    "element": "H",
+    "basis": "AtomFraction",
+    "fraction": 0.909964,
+    "source": "Wikipedia: Abundance of the chemical elements, Solar System nuclide table; citing Arnett 1996"
+  },
+  {
+    "environment": "solar_system",
+    "element": "He",
+    "basis": "AtomFraction",
+    "fraction": 0.088714,
+    "source": "Wikipedia: Abundance of the chemical elements, Solar System nuclide table; citing Arnett 1996"
+  },
+  {
+    "environment": "solar_system",
+    "element": "O",
+    "basis": "AtomFraction",
+    "fraction": 0.000774,
+    "source": "Wikipedia: Abundance of the chemical elements, Solar System nuclide table; citing Arnett 1996"
+  },
+  {
+    "environment": "solar_system",
+    "element": "C",
+    "basis": "AtomFraction",
+    "fraction": 0.000326,
+    "source": "Wikipedia: Abundance of the chemical elements, Solar System nuclide table; citing Arnett 1996"
+  },
+  {
+    "environment": "solar_system",
+    "element": "N",
+    "basis": "AtomFraction",
+    "fraction": 0.000102,
+    "source": "Wikipedia: Abundance of the chemical elements, Solar System nuclide table; citing Arnett 1996"
+  },
+  {
+    "environment": "solar_system",
+    "element": "Ne",
+    "basis": "AtomFraction",
+    "fraction": 0.0001,
+    "source": "Wikipedia: Abundance of the chemical elements, Solar System nuclide table; citing Arnett 1996"
+  },
+  {
+    "environment": "solar_system",
+    "element": "Si",
+    "basis": "AtomFraction",
+    "fraction": 0.00003,
+    "source": "Wikipedia: Abundance of the chemical elements, Solar System nuclide table; citing Arnett 1996"
+  },
+  {
+    "environment": "solar_system",
+    "element": "Mg",
+    "basis": "AtomFraction",
+    "fraction": 0.000028,
+    "source": "Wikipedia: Abundance of the chemical elements, Solar System nuclide table; citing Arnett 1996"
+  },
+  {
+    "environment": "solar_system",
+    "element": "Fe",
+    "basis": "AtomFraction",
+    "fraction": 0.000027,
+    "source": "Wikipedia: Abundance of the chemical elements, Solar System nuclide table; citing Arnett 1996"
+  },
+  {
+    "environment": "solar_system",
+    "element": "S",
+    "basis": "AtomFraction",
+    "fraction": 0.000016,
+    "source": "Wikipedia: Abundance of the chemical elements, Solar System nuclide table; citing Arnett 1996"
+  }
+]
