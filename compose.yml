@@ -9,3 +9,34 @@ services:
       NVIDIA_DRIVER_CAPABILITIES: compute,utility,graphics
     stdin_open: true
     tty: true
+  network-api:
+    build:
+      context: ./network
+    container_name: network-api
+    ports:
+      - "8080:8080"
+    environment:
+      - API_BIND_ADDRESS=0.0.0.0:8080
+      - QUESTDB_DATABASE_URL=postgres://admin:quest@questdb:8812/qdb
+      - AZURE_SUBSCRIPTION_ID=${AZURE_SUBSCRIPTION_ID}
+      - AZURE_TENANT_ID=${AZURE_TENANT_ID}
+      - AZURE_CLIENT_ID=${AZURE_CLIENT_ID}
+      - AZURE_CLIENT_SECRET=${AZURE_CLIENT_SECRET}
+    cap_add:
+      - NET_RAW
+    depends_on:
+      - questdb
+    restart: always
+  questdb:
+    image: questdb/questdb:latest
+    container_name: questdb
+    ports:
+      - "9000:9000"
+      - "8812:8812"
+      - "9009:9009"
+    volumes:
+      - questdb_data:/var/lib/questdb
+    restart: always
+
+volumes:
+  questdb_data:

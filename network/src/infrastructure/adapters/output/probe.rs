@@ -1,11 +1,21 @@
-use crate::models::{Hop, PathTrace};
+use crate::{
+    application::ports::output::NetworkProbe,
+    domain::network::{Hop, PathTrace},
+};
+use async_trait::async_trait;
 use std::net::IpAddr;
 use tokio::process::Command;
 
-pub async fn trace_target(target: String, max_hops: u8) -> PathTrace {
-    match run_traceroute(&target, max_hops).await {
-        Some(trace) => trace,
-        None => run_ping(&target).await,
+#[derive(Clone, Default)]
+pub struct CommandNetworkProbe;
+
+#[async_trait]
+impl NetworkProbe for CommandNetworkProbe {
+    async fn trace_target(&self, target: String, max_hops: u8) -> Result<PathTrace, String> {
+        Ok(match run_traceroute(&target, max_hops).await {
+            Some(trace) => trace,
+            None => run_ping(&target).await,
+        })
     }
 }
 
@@ -168,4 +178,68 @@ fn parse_ping(output: &str) -> Vec<Hop> {
         rtt_ms,
         location: None,
     }]
+}
+
+#[cfg(test)]
+mod tests {
+    use super::*;
+
+    #[test]
+    fn parse_traceroute_extracts_ttl_ip_and_rtt() {
+        let output = "\
+traceroute to 8.8.8.8 (8.8.8.8), 30 hops max
+ 1  192.168.1.1  1.234 ms
+ 2  *
+ 3  8.8.8.8  12.345 ms
+";
+
+        let hops = parse_traceroute(output);
+
+        assert_eq!(hops.len(), 3);
+        assert_eq!(hops[0].ttl, 1);
+        assert_eq!(hops[0].ip, Some("192.168.1.1".to_string()));
+        assert_eq!(hops[0].rtt_ms, Some(1.234));
+        assert_eq!(hops[1].ttl, 2);
+        assert_eq!(hops[1].ip, None);
+        assert_eq!(hops[2].ip, Some("8.8.8.8".to_string()));
+    }
+
+    #[test]
+    fn parse_tracepath_extracts_colon_ttl_ip_and_rtt() {
+        let output = "\
+ 1?: [LOCALHOST]                      pmtu 1500
+ 1:  192.168.1.1                                           1.100ms
+ 2:  8.8.8.8                                               8.250ms
+";
+
+        let hops = parse_tracepath(output);
+
+        assert_eq!(hops.len(), 2);
+        assert_eq!(hops[0].ttl, 1);
+        assert_eq!(hops[0].ip, Some("192.168.1.1".to_string()));
+        assert_eq!(hops[0].rtt_ms, Some(1.1));
+        assert_eq!(hops[1].ttl, 2);
+        assert_eq!(hops[1].ip, Some("8.8.8.8".to_string()));
+        assert_eq!(hops[1].rtt_ms, Some(8.25));
+    }
+
+    #[test]
+    fn parse_ping_extracts_reply_ip_and_time() {
+        let output = "\
+PING dns.google (8.8.8.8) 56(84) bytes of data.
+64 bytes from dns.google (8.8.8.8): icmp_seq=1 ttl=117 time=13.7 ms
+";
+
+        let hops = parse_ping(output);
+
+        assert_eq!(hops.len(), 1);
+        assert_eq!(hops[0].ttl, 0);
+        assert_eq!(hops[0].ip, Some("8.8.8.8".to_string()));
+        assert_eq!(hops[0].rtt_ms, Some(13.7));
+    }
+
+    #[test]
+    fn parse_ping_returns_no_hops_without_reply_line() {
+        assert!(parse_ping("PING example.com\n").is_empty());
+    }
 }

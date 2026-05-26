@@ -4,6 +4,8 @@ wave.rrd
 
 .venv
 
+.env
+
 cargo.lock
 
 # Added by cargo
