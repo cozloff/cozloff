@@ -8,7 +8,7 @@ pub fn generate_1d_wave_video<B: burn::tensor::backend::Backend>(
 
     for frame in 0..240 {
         let time = frame as f32 / 30.0;
-        let y = generate_1d_wave::<B>(device, 1.0, 2.0, 1.0, 0.0, time)
+        let y: Vec<f32> = generate_1d_wave::<B>(device, 1.0, 2.0, 1.0, 0.0, time)
             .into_data()
             .to_vec::<f32>()?;
         let points = y

@@ -1,11 +1,11 @@
 use serde::{Deserialize, Serialize};
 
-#[derive(Debug, Serialize)]
+#[derive(Debug, Clone, Serialize)]
 pub struct PathsResponse {
     pub targets: Vec<PathTrace>,
 }
 
-#[derive(Debug, Serialize)]
+#[derive(Debug, Clone, Serialize)]
 pub struct PathTrace {
     pub target: String,
     pub hops: Vec<Hop>,
