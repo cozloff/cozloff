@@ -1,0 +1,10 @@
+[package]
+name = "network"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+axum = "0.8.9"
+reqwest = { version = "0.12.24", features = ["json"] }
+serde = { version = "1", features = ["derive"] }
+tokio = { version = "1.52.3", features = ["process", "rt-multi-thread", "macros", "net"] }
