@@ -1,5 +1,6 @@
 use crate::{
-    application::ports::output::{GeoLocator, NetworkHopRepository, NetworkProbe},
+    application::ports::input::network_trace::NetworkHopRepository,
+    application::ports::output::{NetworkProbe, GeoLocator},
     domain::network::PathsResponse,
 };
 

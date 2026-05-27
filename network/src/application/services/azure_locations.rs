@@ -1,5 +1,5 @@
 use crate::{
-    application::ports::output::AzureLocationProvider,
+    application::ports::output::azure_locations::AzureLocationProvider,
     domain::azure::AzureLocationsResponse,
 };
 

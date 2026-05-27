@@ -1,5 +1,5 @@
 use crate::{
-    application::ports::output::NetworkProbe,
+    application::ports::output::network_trace::NetworkProbe,
     domain::network::{Hop, PathTrace},
 };
 use async_trait::async_trait;

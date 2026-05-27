@@ -1,4 +1,7 @@
-use crate::{application::ports::output::AzureLocationProvider, domain::azure::AzureLocation};
+use crate::{
+    application::ports::output::azure_locations::AzureLocationProvider, 
+    domain::azure::AzureLocation
+};
 use async_trait::async_trait;
 use azure_mgmt_resources::package_subscriptions_2021_01::{
     Client,

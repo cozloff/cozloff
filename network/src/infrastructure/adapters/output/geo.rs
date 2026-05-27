@@ -1,5 +1,5 @@
 use crate::{
-    application::ports::output::GeoLocator,
+    application::ports::output::network_trace::GeoLocator,
     domain::network::{Location, PathTrace},
 };
 use async_trait::async_trait;

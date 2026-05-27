@@ -1,4 +1,7 @@
-use crate::{application::ports::output::NetworkHopRepository, domain::network::PathTrace};
+use crate::{
+    application::ports::input::network_trace::NetworkHopRepository, 
+    domain::network::PathTrace
+};
 use async_trait::async_trait;
 use sqlx::{PgPool, postgres::PgPoolOptions};
 
