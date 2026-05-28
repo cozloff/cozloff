@@ -1,12 +1,14 @@
-use crate::iouring_abi;
-use std::ffi::c_void;
 use std::io;
 use std::mem;
-use std::os::fd::RawFd;
 use std::ptr;
+use std::ffi::c_void;
+use std::os::fd::RawFd;
 use std::sync::atomic::{AtomicU32, Ordering};
 
+use crate::iouring_abi;
+
 pub struct IoUring {
+    // File descriptor for io_uring instance
     fd: RawFd,
     sq: SubmissionQueue,
     cq: CompletionQueue,
