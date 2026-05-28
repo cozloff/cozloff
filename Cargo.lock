@@ -1861,10 +1861,14 @@ name = "cozloff"
 version = "0.1.0"
 dependencies = [
  "burn",
+ "crc32fast",
+ "lz4",
  "polars",
  "rerun",
  "serde",
  "serde_json",
+ "tempfile",
+ "zstd 0.13.3",
 ]
 
 [[package]]

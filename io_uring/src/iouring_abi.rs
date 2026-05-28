@@ -7,6 +7,9 @@ pub const SYS_IO_URING_ENTER: isize = 426;
 // Ask io_uring_enter to wait until at least the requested number of CQEs exist.
 pub const IORING_ENTER_GETEVENTS: u32 = 1;
 
+// Operation codes used by this example.
+pub const IORING_OP_WRITE: u8 = 23;
+
 // Special mmap offsets understood by the io_uring file descriptor.
 pub const IORING_OFF_SQ_RING: i64 = 0;
 pub const IORING_OFF_CQ_RING: i64 = 0x8000000;
@@ -88,14 +91,14 @@ pub struct io_cqring_offsets {
 #[derive(Default)]
 pub struct io_uring_params {
     // Params passed to io_uring_setup and filled in by the kernel.
-    pub sq_entries: u32, // Number of submission queue entries.
-    pub cq_entries: u32, // Number of completion queue entries.
-    pub flags: u32,      // Setup flags requested by userspace.
-    pub sq_thread_cpu: u32, // CPU to run the SQ polling thread on, when enabled.
-    pub sq_thread_idle: u32, // Time in ms for the SQ polling thread to idle before sleeping.
-    pub features: u32,   // Supported features returned by the kernel.
-    pub wq_fd: u32,      // Workqueue fd when sharing worker state with another ring.
-    pub resv: [u32; 3],  // Reserved padding so the kernel can extend the ABI.
+    pub sq_entries: u32,           // Number of submission queue entries.
+    pub cq_entries: u32,           // Number of completion queue entries.
+    pub flags: u32,                // Setup flags requested by userspace.
+    pub sq_thread_cpu: u32,        // CPU to run the SQ polling thread on, when enabled.
+    pub sq_thread_idle: u32,       // Time in ms for the SQ polling thread to idle before sleeping.
+    pub features: u32,             // Supported features returned by the kernel.
+    pub wq_fd: u32,                // Workqueue fd when sharing worker state with another ring.
+    pub resv: [u32; 3],            // Reserved padding so the kernel can extend the ABI.
     pub sq_off: io_sqring_offsets, // Offsets for SQ ring fields in shared memory refs
     pub cq_off: io_cqring_offsets, // Offsets for CQ ring fields in shared memory refs
 }
@@ -134,6 +137,7 @@ pub struct io_uring_sqe {
 
 // One completion queue entry: the kernel's result for a finished SQE.
 #[repr(C)]
+#[derive(Clone, Copy)]
 pub struct io_uring_cqe {
     pub user_data: u64, // The ID you passed in the submission entry.
     pub res: i32,       // Result: bytes/status on success, or a negative errno.
