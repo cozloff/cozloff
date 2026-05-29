@@ -42,6 +42,8 @@ struct CompletionQueue {
 }
 
 impl IoUring {
+    /// Create a new io_uring instance with the specified number 
+    /// of SQ entries.
     pub fn new(entries: u32) -> io::Result<Self> {
         /// Init io_uring instance, get file descriptor and params.
         let (fd, params) = Self::init_io_uring()?;

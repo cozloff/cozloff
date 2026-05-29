@@ -42,13 +42,28 @@ fn run_audio_adc_demo() -> io::Result<()> {
         CHANNELS,
         FRAMES_PER_BLOCK,
     )?;
-    let buffers = std::iter::once(Ok(audio_log::file_header(spec))).chain(
+    let buffers = std::iter::once(
+        Ok(
+            audio_log::file_header(spec)
+        )
+    ).chain(
         source
             .take(BLOCK_COUNT as usize)
-            .map(|block| block.map(|block| audio_log::encode_block(&block))),
+            .map(
+                |block| {
+                    block.map(
+                        |block| audio_log::encode_block(&block)
+                    )
+                }
+            ),
     );
     let stats =
-        writer::write_sequential_buffers(&ring, output.as_raw_fd(), buffers, ring.capacity())?;
+        writer::write_sequential_buffers(
+            &ring,
+            output.as_raw_fd(),
+            buffers,
+            ring.capacity()
+        )?;
 
     println!(
         "wrote {} ADC audio buffers, {} bytes, {} errors to {}",
